@@ -13,7 +13,10 @@ Ledger is a standalone React + Vite project packaged as a mobile application usi
 
 # 📱 Screenshots
 
-*(Screenshots will be added as development progresses.)*
+<img width="383" height="792" alt="Screenshot 2026-07-22 150630" src="https://github.com/user-attachments/assets/24d6bb03-baf8-49c4-b5f5-321aaa798f49" />
+<img width="385" height="790" alt="Screenshot 2026-07-22 150732" src="https://github.com/user-attachments/assets/0c9fceba-1109-4af7-b2b1-34e0457e71ad" />
+<img width="380" height="786" alt="Screenshot 2026-07-22 150857" src="https://github.com/user-attachments/assets/141520ce-6b8b-4143-8503-2999a806927b" />
+<img width="382" height="788" alt="Screenshot 2026-07-22 150909" src="https://github.com/user-attachments/assets/c5ca6c09-bf4b-4949-a76a-55210b8e9fc6" />
 
 ---
 
