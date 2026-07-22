@@ -121,7 +121,7 @@ git commit -m "Initial commit"
 
 git branch -M main
 
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
+git remote add origin https://github.com/lochanpalani11/Ledger-01.git
 
 git push -u origin main
 ```
@@ -197,7 +197,7 @@ If you prefer building the app on your own machine instead of using GitHub Actio
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+git clone https://github.com/lochanpalani11/Ledger-01.git
 cd ledger-app
 ```
 
