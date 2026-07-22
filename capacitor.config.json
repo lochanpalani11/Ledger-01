@@ -1,0 +1,9 @@
+{
+  "appId": "com.ledger.app",
+  "appName": "Ledger",
+  "webDir": "dist",
+  "backgroundColor": "#0B0D10",
+  "android": {
+    "backgroundColor": "#0B0D10"
+  }
+}
