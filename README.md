@@ -5,6 +5,12 @@ no Claude-specific APIs involved. Data is saved with `localStorage`, which works
 the same in a normal browser and inside the WebView that Capacitor uses to build
 Android/iOS apps.
 
+## 🤖 AI Disclosure
+
+This application was developed by me using AI-assisted development tools. I designed the app, defined its features, tested its functionality, and guided the development process, while AI assisted with generating code, debugging, refactoring, and implementation details.
+
+This project reflects my ideas, decisions, and ongoing development rather than being a fully AI-generated application.
+
 ## Fastest way to get an installable APK (no local Android setup needed)
 
 This project includes a GitHub Actions workflow
