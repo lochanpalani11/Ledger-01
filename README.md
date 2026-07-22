@@ -1,388 +1,98 @@
 # Ledger
 
-![Platform](https://img.shields.io/badge/Platform-Android-green)
-![Framework](https://img.shields.io/badge/Framework-React%20%2B%20Vite-blue)
-![Mobile](https://img.shields.io/badge/Mobile-Capacitor-purple)
-![Status](https://img.shields.io/badge/Status-In%20Development-orange)
+A habit, goal, and life-tracking app. This is a standalone React + Vite project —
+no Claude-specific APIs involved. Data is saved with `localStorage`, which works
+the same in a normal browser and inside the WebView that Capacitor uses to build
+Android/iOS apps.
 
-A habit, goal, and life-tracking app designed to help users organize their daily routines, track progress, and build better habits.
+## Fastest way to get an installable APK (no local Android setup needed)
 
-Ledger is a standalone React + Vite project packaged as a mobile application using Capacitor. The app does not use any Claude-specific APIs or AI services. User data is stored locally using browser `localStorage`, which works both in a normal browser environment and inside the WebView used by Capacitor for Android/iOS builds.
+This project includes a GitHub Actions workflow
+(`.github/workflows/build-apk.yml`) that builds a real, installable debug APK
+automatically on GitHub's own servers — you don't need Android Studio, a JDK,
+or the Android SDK on your own machine at all.
 
----
+1. Create a new repository on [github.com](https://github.com/new) (public or
+   private, either works).
+2. Push this project to it:
+   ```bash
+   cd ledger-app
+   git init
+   git add .
+   git commit -m "Initial commit"
+   git branch -M main
+   git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
+   git push -u origin main
+   ```
+3. On GitHub, open your repo's **Actions** tab. A workflow run should already
+   be in progress (triggered by the push). If you ever want to rebuild without
+   pushing new code, click **Run workflow** there manually.
+4. When the run finishes (usually 3–6 minutes), click into it and scroll to
+   **Artifacts** at the bottom — download `ledger-debug-apk`. Unzip it to get
+   `app-debug.apk`.
+5. Transfer that `.apk` to your Android phone (email it to yourself, Google
+   Drive, USB, whatever's easiest) and open it. You'll need to allow
+   **"Install unknown apps"** for whichever app you used to open it — Android
+   will prompt you for this the first time.
 
-# 📱 Screenshots
+That's it — no local build tools required. Every time you push a change to
+`main`, a fresh APK is built automatically and shows up in that same Actions
+tab.
 
-*(Screenshots will be added as development progresses.)*
+### About this APK
 
----
+- It's a **debug build**, signed with Android's auto-generated debug key. This
+  is completely fine for installing on your own phone and everyday use — it's
+  the same kind of build you'd get testing an app in Android Studio. It is
+  **not** suitable for publishing to the Google Play Store, which requires a
+  proper release signing key (a separate step, only needed if you want to
+  publish it).
+- The app icon is currently Capacitor's default placeholder icon. Swapping in
+  a custom one is a small follow-up (drop icon files into
+  `android/app/src/main/res/` in the generated project, or ask me to add an
+  icon-generation step to the workflow).
+- Fonts (Aldrich/Inter/JetBrains Mono) load from Google's CDN on first run, so
+  the app needs internet the very first time each font is used. Let me know if
+  you'd rather have them bundled for full offline use.
 
-# ✨ Features
+## Running it locally (optional, for testing changes before pushing)
 
-## Current Features
-
-* ✅ Habit tracking
-* ✅ Goal tracking
-* ✅ Life progress tracking
-* ✅ Local data storage
-* ✅ Offline functionality
-* ✅ Responsive user interface
-* ✅ Android APK generation
-* ✅ Cross-platform foundation using Capacitor
-
-## Planned Features
-
-* ⬜ Habit streak tracking improvements
-* ⬜ Notifications and reminders
-* ⬜ Calendar integration
-* ⬜ Data export/import
-* ⬜ Cloud synchronization
-* ⬜ Additional analytics and statistics
-* ⬜ Custom themes
-
----
-
-# 🤖 AI Development Disclosure
-
-This project was developed using AI-assisted programming tools.
-
-I was responsible for the application's concept, feature planning, user experience decisions, testing, debugging, and overall direction. AI tools were used as a development assistant for tasks such as code generation, debugging, refactoring, and explaining programming concepts.
-
-All generated code was reviewed, integrated, modified when necessary, and tested as part of the development process.
-
-AI was used as a tool to accelerate development and learning, similar to how developers use documentation, tutorials, and programming assistants.
-
----
-
-# 🛠️ Tech Stack
-
-## Frontend
-
-* React
-* Vite
-* JavaScript
-* HTML
-* CSS
-
-## Mobile Packaging
-
-* Capacitor
-
-## Data Storage
-
-* Browser localStorage
-
-## Development Tools
-
-* Git
-* GitHub
-* GitHub Actions
-
----
-
-# 🚀 Fastest Way to Build an Installable APK
-
-No Android Studio, JDK, or Android SDK is required.
-
-This project includes a GitHub Actions workflow:
-
-```
-.github/workflows/build-apk.yml
-```
-
-which automatically builds an installable Android APK using GitHub's servers.
-
----
-
-## Step 1: Create a GitHub Repository
-
-Create a new repository on:
-
-```
-https://github.com
-```
-
-The repository can be either public or private.
-
----
-
-## Step 2: Push the Project
-
-Open a terminal inside the project folder:
+You need [Node.js](https://nodejs.org) installed (18+ recommended).
 
 ```bash
 cd ledger-app
-
-git init
-
-git add .
-
-git commit -m "Initial commit"
-
-git branch -M main
-
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
-
-git push -u origin main
-```
-
----
-
-## Step 3: Download the APK
-
-1. Open your GitHub repository.
-2. Go to the **Actions** tab.
-3. Wait for the workflow to finish.
-4. Open the completed workflow.
-5. Scroll to **Artifacts**.
-6. Download:
-
-```
-ledger-debug-apk
-```
-
-7. Extract the ZIP file.
-8. Install:
-
-```
-app-debug.apk
-```
-
-on your Android device.
-
----
-
-# 📦 About This APK
-
-The generated APK is a debug build.
-
-It is:
-
-✅ Safe for personal testing
-✅ Installable on Android devices
-✅ Suitable for everyday personal use
-
-It is not ready for Google Play Store publishing because Play Store releases require:
-
-* A release signing key
-* A properly configured production build
-* Additional publishing requirements
-
----
-
-# 📲 Installing on Android
-
-When installing the APK:
-
-1. Transfer the APK file to your phone.
-2. Open the file.
-3. Android may ask permission to install unknown apps.
-4. Allow permission.
-5. Install the application.
-
----
-
-# 🏗️ Building Locally with Android Studio
-
-If you prefer building the app on your own machine instead of using GitHub Actions, the setup has been simplified.
-
-## Requirements
-
-* Node.js 18 or later
-* npm
-* Android Studio
-
-## Steps
-
-1. Clone this repository:
-
-```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
-cd ledger-app
-```
-
-2. Install dependencies:
-
-```bash
 npm install
-```
-
-3. Open the the folder 'Android' in Android Studio.
-
-4. Build and run the app on an emulator or a physical Android device.
-
-That's it! The Android project is already configured, so you no longer need to manually run Capacitor setup commands such as:
-
-* `npx cap add android`
-* `npx cap sync android`
-* `npx cap open android`
-
-Those steps have already been completed for this repository.
-
----
-
-## Running the Web Version
-
-To run the web version for development:
-
-```bash
 npm run dev
 ```
 
-Open the local URL shown in your terminal (typically `http://localhost:5173`).
+Open the URL it prints (usually `http://localhost:5173`).
 
----
+## Building it yourself with Android Studio (alternative to GitHub Actions)
 
-## Building a Production Web Bundle
-
-To create an optimized production build:
-
-```bash
-npm run build
-```
-
-This generates the production files in the `dist/` directory.
-
-```
-
----
-
-# 🏢 Building Manually With Android Studio
-
-If you prefer building locally:
+If you'd rather build locally instead of using GitHub Actions:
 
 ```bash
 npm install
-
 npm run build
-
 npx cap add android
-
 npx cap sync android
-
 npx cap open android
 ```
 
-This opens the native Android project in Android Studio.
+This opens the native project in Android Studio, where you can run it on an
+emulator/device, or use **Build > Generate Signed Bundle / APK** for a release
+build.
 
-From there you can:
-
-* Run the app on an emulator
-* Run it on a physical device
-* Generate signed APKs
-
----
-
-# 📂 Project Structure
+## Project structure
 
 ```
 ledger-app/
-
-├── .github/
-│   └── workflows/
-│       └── build-apk.yml
-
-├── capacitor.config.json
-
-├── index.html
-
-├── package.json
-
-├── vite.config.js
-
-└── src/
-    ├── main.jsx
-    └── App.jsx
+  .github/workflows/build-apk.yml   builds the APK on GitHub's servers
+  capacitor.config.json             app id, name, native config
+  index.html                        entry HTML
+  package.json
+  vite.config.js
+  src/
+    main.jsx        mounts the app
+    App.jsx          the entire app (all components, all logic)
 ```
-
----
-
-# 📌 Project Status
-
-🚧 Currently in active development.
-
-The goal is to continuously improve Ledger while learning modern app development practices.
-
----
-
-# 🗺️ Roadmap
-
-## Version 0.1
-
-* [x] Initial application setup
-* [x] React + Vite foundation
-* [x] Capacitor integration
-* [x] Basic tracking functionality
-
-## Version 0.5
-
-* [ ] Improved UI
-* [ ] More tracking features
-* [ ] Better analytics
-
-## Version 1.0
-
-* [ ] Stable release
-* [ ] Production-ready build
-* [ ] Additional customization options
-
----
-
-# 📝 Changelog
-
-## v0.1
-
-* Initial project creation
-* Added React + Vite setup
-* Added Capacitor mobile packaging
-* Added GitHub Actions APK workflow
-
----
-
-# 🧠 Lessons Learned
-
-Building Ledger helped me learn:
-
-* React component development
-* Mobile app packaging
-* Local data storage
-* UI/UX design
-* Git and GitHub workflows
-* Debugging and problem solving
-* AI-assisted software development
-
----
-
-# 🐛 Known Issues
-
-Current known issues:
-
-* Custom app icon still needs implementation
-* Some fonts currently load from Google's CDN
-* Offline font support may be added in a future update
-
----
-
-# 📄 License
-
-All Rights Reserved.
-
-This project is currently a personal learning project. The source code may not be copied, redistributed, or used commercially without permission.
-
----
-
-# 📬 Contact
-
-GitHub:
-
-```
-@YOUR_USERNAME
-```
-
----
-
-# ❤️ Why I Built Ledger
-
-Ledger was created as a personal project to explore app development, improve programming skills, and build a practical tool for tracking habits, goals, and personal growth.
-
-The project represents continuous learning, experimentation, and improvement through building real software.
