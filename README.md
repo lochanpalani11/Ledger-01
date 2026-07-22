@@ -182,33 +182,67 @@ When installing the APK:
 
 ---
 
-# 🏗️ Running Locally
+# 🏗️ Building Locally with Android Studio
+
+If you prefer building the app on your own machine instead of using GitHub Actions, the setup has been simplified.
 
 ## Requirements
 
-* Node.js 18+
+* Node.js 18 or later
 * npm
+* Android Studio
 
-Install dependencies:
+## Steps
+
+1. Clone this repository:
+
+```bash
+git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+cd ledger-app
+```
+
+2. Install dependencies:
 
 ```bash
 npm install
 ```
 
-Start development server:
+3. Open the project in Android Studio.
+
+4. Build and run the app on an emulator or a physical Android device.
+
+That's it! The Android project is already configured, so you no longer need to manually run Capacitor setup commands such as:
+
+* `npx cap add android`
+* `npx cap sync android`
+* `npx cap open android`
+
+Those steps have already been completed for this repository.
+
+---
+
+## Running the Web Version
+
+To run the web version for development:
 
 ```bash
 npm run dev
 ```
 
-Open the URL shown in the terminal.
+Open the local URL shown in your terminal (typically `http://localhost:5173`).
 
-Usually:
+---
 
+## Building a Production Web Bundle
+
+To create an optimized production build:
+
+```bash
+npm run build
 ```
-http://localhost:5173
-```
 
+This generates the production files in the `dist/` directory.
+---
 ---
 
 # 🏢 Building Manually With Android Studio
